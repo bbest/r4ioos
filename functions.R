@@ -4,6 +4,7 @@ library(dygraphs)
 library(glue)
 library(here)
 library(leaflet)
+library(lubridate)
 library(readr)
 library(rerddap)
 library(purrr)
@@ -72,7 +73,7 @@ get_timeseries <- function(info, lon, lat, csv, field="sst"){
   d_now <- v$data %>%
     as_tibble() %>%
     mutate(
-      date = lubridate::as_date(time, "%Y-%m-%dT00:00:00Z")) %>%
+      date = as_date(time, "%Y-%m-%dT00:00:00Z")) %>%
     select(date, field) %>%
     arrange(date)
   
