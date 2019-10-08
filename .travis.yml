@@ -1,0 +1,29 @@
+language: r
+dist: xenial
+latex: false
+
+cache:
+  packages: true
+  directories:
+    - $HOME/bin
+
+script:
+  - Rscript make.R > make.log
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+  local_dir: .
+
+git:
+  depth: 3
+notifications:
+  email:
+    recipients:
+      - ben@ecoquants.com
+    on_success: change
+    on_failure: change
+    

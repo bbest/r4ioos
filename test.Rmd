@@ -1,0 +1,37 @@
+---
+title: "test"
+#always_allow_html: yes
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+## Map
+
+```{r}
+# include libraries and functions
+source(here::here("functions.R"))
+
+# get sst info
+sst      <- info('jplMURSST41mday')
+date_end <- get_dates(sst)[2]
+
+# sites
+sites <- read_csv(here("data/nms_sites.csv"))
+
+# most recent sst map
+map_sst(sites, date = date_end)
+```
+
+## Time Series
+
+```{r}
+sst_sites <- get_sst(sites, csv_pfx = "data/sst_")
+plot_sst(sst_sites)
+```
+
