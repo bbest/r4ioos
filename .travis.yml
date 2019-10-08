@@ -2,6 +2,17 @@ language: r
 dist: xenial
 latex: false
 
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ubuntugis/ppa'
+    packages:
+      - libudunits2-dev
+      - libproj-dev
+      - libgeos-dev
+      - libgdal-dev
+      - netcdf-bin
+      
 cache:
   packages: true
   directories:
@@ -18,8 +29,6 @@ deploy:
     branch: master
   local_dir: .
 
-git:
-  depth: 3
 notifications:
   email:
     recipients:
