@@ -1,6 +1,8 @@
 Package: placeholder
 Title: Does not matter.
 Version: 0.0.1
-Imports: rmarkdown, here, glue, dplyr, stringr, dygraphs,
-  xts, leaflet, rerddap, purrr, tidyr
+Imports: rmarkdown, 
+  dplyr, dygraphs, here, glue, leaflet, 
+  readr, rerddap, purrr, stringr, tidyr,
+  xts
 Remotes: ropensci/rerddap

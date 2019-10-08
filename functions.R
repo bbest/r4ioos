@@ -1,15 +1,15 @@
 # load libraries
-library(here)
-library(readr)
 library(dplyr)
-library(leaflet)
-library(rerddap)
+library(dygraphs)
 library(glue)
+library(here)
+library(leaflet)
+library(readr)
+library(rerddap)
 library(purrr)
 library(stringr)
 library(tidyr)
 library(xts)
-library(dygraphs)
 addLegend = leaflet::addLegend
 here      = here::here
 
