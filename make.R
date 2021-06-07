@@ -1,0 +1,5 @@
+library(rmarkdown)
+render("README.md", output_format = "html_document", output_file = "index.html")
+render( "test.Rmd", output_format = "html_document")
+#render("test.Rmd", output_format="pdf_document")
+#render("test.Rmd", output_format="word_document")

@@ -1,0 +1,38 @@
+language: r
+dist: xenial
+latex: false
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ubuntugis/ppa'
+    packages:
+      - libudunits2-dev
+      - libproj-dev
+      - libgeos-dev
+      - libgdal-dev
+      - netcdf-bin
+      
+cache:
+  packages: true
+  directories:
+    - $HOME/bin
+
+script:
+  - Rscript make.R > make.log
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+  local_dir: .
+
+notifications:
+  email:
+    recipients:
+      - ben@ecoquants.com
+    on_success: change
+    on_failure: change
+    
